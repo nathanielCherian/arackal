@@ -1,0 +1,336 @@
+{% load static %}
+<html>
+
+    <head>
+        <title>pipe</title>
+
+        <script src="http://spite.github.io/THREE.MeshLine/demo/js/three.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+        <link rel="stylesheet" media="screen and (orientation: landscape)" href="{% static 'home/css/landscape.css' %}">
+        <link rel="stylesheet" media="screen and (orientation: portrait)" href="{% static 'home/css/landscape.css' %}">
+
+    </head>
+
+    <body>
+
+
+        <div class="contact">
+            <h1>Contact Us</h1>
+            <h2>(619) 808 6911</h2>
+            <h2>akbabu200@yahoo.com</h2>
+        </div>
+
+        <div class="request fade-in">
+            <h1 class="request-text">Request a service</h1>
+
+            <div class="request-form">
+                <form>
+
+                    <input type="text" class="input-name" placeholder="Name"><br>
+                    <input type="tel" class="input-phone" placeholder="Phone Number">
+                    <input type="email" class="input-email" placeholder="Email"><br>
+                    <textarea class="input-message" placeholder="Message"></textarea>
+
+                    <div style="text-align: center;">
+                        <input type="submit" class="input-submit">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1 class="title fade-in">Arackal</h1>
+
+            <div class="logo">
+                <img src="{% static 'home/images/logo.png' %}" class="fade-in">
+                <h1 class="fade-in">Plumbing and heating</h1>
+            </div>
+
+            <div class="services landscape">
+                <div class="service s1">
+                    <a href="{% url 'plumbing'%}" class="service s1">Plumbing</a>
+                </div>
+                <div class="service s2">
+                    <a href="{% url 'heating'%}" class="service s2">Heating</a>
+                </div>
+                <div class="service s3">
+                    <a href="{% url 'appliances'%}" class="service s3">Appliances</a>
+                </div>
+            </div>
+
+
+            <div class="scroll-arrow">
+                <h2 class="fa fa-angle-double-down arrow-down"></h2>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="about p0">
+
+            <h1>About Us</h1>
+
+            <p class="para p1">
+                Finding the right home appliance technician that you and your family is comfortable with is
+                no easy task. If you need plumbing, heating or appliance related work where you don’t have the
+                technical expertise, you may never know what you can expect from a service technician.
+            </p>
+
+            <p class="para p2">
+                When Babu Kuriakose started doing plumbing work in 2015 he saw a major disconnect in the industry.
+                Customers didn’t know what kind of work was being done inside their homes. Technicians often
+                do more than is needed, and charge the client. Babu Kuriakose believes that the clients deserve
+                to know what options are available, and the clients should be able to make a comfortable
+                decision. In Arackal Plumbing and Heating solutions, you will find friendly, trustworthy service
+
+                technician who will provide accurate and reliable service
+            </p>
+
+            <p class="para p3">We happily serve in San Diego, San Marcos, El Cajon and Escondido areas</p>
+
+
+        </div>
+
+
+        <canvas id="c"></canvas>
+
+
+
+        <script type="module">
+            import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/MTLLoader.js';
+            import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
+            import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js';
+
+
+            function main() {
+                const canvas = document.querySelector('#c');
+                const renderer = new THREE.WebGLRenderer({canvas});
+
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0x7fe3e3)
+
+
+
+
+                const fov = 45;
+                const aspect = 2;  // the canvas default
+                const near = 0.1;
+                const far = 300;
+                const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+
+                scene.add(camera);
+                camera.position.set(-20.39732808127235, 8.491698579320456, 5.191119003284504);
+                camera.lookAt(0,0,0)
+
+
+                const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1.5);
+                scene.add( light );
+
+
+
+
+                
+                const mtlLoader = new MTLLoader();
+
+                {
+                    mtlLoader.load("{% static 'home/models/pipe/pipe.mtl' %}", (mtlParseResult) => {
+                    const objLoader = new OBJLoader2();
+                    const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
+                    objLoader.addMaterials(materials);
+                        objLoader.load("{% static 'home/models/pipe/pipe.obj' %}", (root) => {
+
+                            root.scale.set(1.5,1.5,1.5);
+                            scene.add(root);
+
+                        });
+                    });
+                }
+
+
+                const handleMesh = new THREE.Object3D();
+                handleMesh.position.y -= 0.1;
+                scene.add(handleMesh)
+                {
+                    mtlLoader.load("{% static 'home/models/handle/handle.mtl' %}", (mtlParseResult) => {
+                    const objLoader = new OBJLoader2();
+                    const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
+                    objLoader.addMaterials(materials);
+                        objLoader.load("{% static 'home/models/handle/handle.obj' %}", (root) => {
+
+                            root.scale.set(1.5,1.5,1.5);
+                            handleMesh.add(root);
+
+                        });
+                    });
+                }
+
+                
+
+
+                const blockgeo = new THREE.BoxGeometry(30,30,40);
+                const blockmat = new THREE.MeshPhongMaterial({color:0x63717d, vertexColors:THREE.FaceColors});
+                const blockmesh = new THREE.Mesh(blockgeo, blockmat);
+                blockmesh.geometry.faces[ 2 ].color.setHex( 0x4e5861 ); 
+                blockmesh.geometry.faces[ 3 ].color.setHex( 0x4e5861 ); 
+
+                blockmesh.position.set(12, -5.8, -24);
+
+                scene.add(blockmesh)
+                
+
+
+
+
+                
+                window.addEventListener("scroll", function(event){
+                    const pos = window.scrollY/3876
+                    console.log(pos)
+                    handleMesh.rotation.y = 4*Math.PI*pos
+
+                    if(pos > .3){
+                        $('.content').fadeOut(500);
+                    }else{
+                        $('.content').fadeIn(500);
+                    }
+
+                    if(pos > .3 && pos < .7){
+                        rotateCamera((pos-.3)*2.5)
+                    }
+
+                });
+
+
+                const finalPoint = new THREE.Vector3(7.57651299677906, 8.013077210166774, 20.944300585467776);
+                const mPoint = new THREE.Vector3(-6.6, 8.013077210166774, 15);
+                const startPoint = new THREE.Vector3(-20.39732808127235, 8.013077210166774, 5.191119003284504);
+                const curve = new THREE.CatmullRomCurve3([startPoint, mPoint, finalPoint]);
+                curve.tension = .05;
+                function rotateCamera(t){
+                    camera.position.copy(curve.getPoint(t))
+                    camera.lookAt(0,0,0)
+
+
+                    if(t > .25){
+                        $('.request').fadeOut(500);
+                        $('.request-form').fadeOut(500);
+                    }else{
+                        $('.request').fadeIn(500);
+                    }
+
+                    if(t > .45){
+                        $('.contact').fadeIn(500);
+
+                    }else{
+                        $('.contact').fadeOut(500);
+                    }
+
+
+                    if(t > .75){
+                        $('.p0').fadeIn(500);
+
+                    }else{
+                        $('.p0').fadeOut(500);
+                    }
+
+                    if(t > .80){
+                        $('.p1').fadeIn(500);
+
+                    }else{
+                        $('.p1').fadeOut(500);
+                    }
+
+                    if(t > .85){
+                        $('.p2').fadeIn(500);
+
+                    }else{
+                        $('.p2').fadeOut(500);
+                    }
+
+                    if(t > .90){
+                        $('.p3').fadeIn(500);
+
+                    }else{
+                        $('.p3').fadeOut(500);
+                    }
+
+                }
+                
+
+
+
+                function render(time){
+                    time *= 0.001;
+
+                    if(resizeRendererToDisplaYSize(renderer)){
+                        const canvas = renderer.domElement;
+                        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                        camera.updateProjectionMatrix();
+                    }
+
+
+                   
+                    renderer.render(scene, camera);
+                    requestAnimationFrame(render);
+                }
+
+
+
+                function resizeRendererToDisplaYSize(renderer) {
+                    const canvas = renderer.domElement;
+                    const pixelRatio = window.devicePixelRatio;
+                    const width = canvas.clientWidth * pixelRatio | 0;
+                    const height = canvas.clientHeight * pixelRatio | 0;
+                    const needResize = canvas.width !== width || canvas.height !== height;
+                    if (needResize){
+                        renderer.setSize(width, height, false);
+                    }
+                    return needResize;
+                }
+
+                requestAnimationFrame(render);
+
+            }
+
+            main()
+
+
+            $('.request-text').click(function (event){
+                $('.request-form').fadeIn(1000);
+            });
+
+
+        </script>
+
+
+
+        <style>
+
+            html, body{
+                margin: 0;
+                height: 100%;
+            }
+
+            body{
+                height: 500vh;
+            }
+
+            #c{
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: fixed;
+            }
+
+  
+        </style>
+
+
+    </body>
+
+</html>
