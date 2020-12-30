@@ -16,7 +16,7 @@ def appliances(request):
 
 
 
-recipients = ['akbabu200@yahoo.com',]
+recipients = ['arackalcontact@gmail.com',]
 def get_request(request):
     if(request.method == "POST"):
         name = request.POST.get("name", 'nil')
