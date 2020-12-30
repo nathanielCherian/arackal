@@ -22,12 +22,12 @@
             <h1 class="request-text">Request a service</h1>
 
             <div class="request-form">
-                <form>
-
-                    <input type="text" class="input-name" placeholder="Name"><br>
-                    <input type="tel" class="input-phone" placeholder="Phone Number">
-                    <input type="email" class="input-email" placeholder="Email"><br>
-                    <textarea class="input-message" placeholder="Message"></textarea>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" class="input-name" placeholder="Name" name="name"><br>
+                    <input type="tel" class="input-phone" placeholder="Phone Number" name="number">
+                    <input type="email" class="input-email" placeholder="Email" name="email"><br>
+                    <textarea class="input-message" placeholder="Message" name="message"></textarea>
 
                     <div style="text-align: center;">
                         <input type="submit" class="input-submit">
