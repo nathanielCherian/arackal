@@ -20,7 +20,7 @@
         <div class="contact">
             <h1>Contact Us</h1>
             <h2>(619) 808 6911</h2>
-            <h2>akbabu200@yahoo.com</h2>
+            <h2><a href = "mailto: arackalplumbing@gmail.com ">arackalplumbing@gmail.com</a></h2>
         </div>
 
         <div class="request fade-in">
@@ -69,6 +69,11 @@
 
         </div>
 
+
+        <div class="license-number">
+            <h2>Babu Arackal Kuriakose</h2>
+            <h2>License No. 1072564</h2>
+        </div>
 
 
 
@@ -219,8 +224,10 @@
                     if(t > .25){
                         $('.request').fadeOut(500);
                         $('.request-form').fadeOut(500);
+                        $('.license-number').fadeOut(500);
                     }else{
                         $('.request').fadeIn(500);
+                        $('.license-number').fadeIn(500);
                     }
 
                     if(t > .45){
@@ -304,12 +311,29 @@
                 $('.request-form').fadeIn(1000);
             });
 
+            $('.arrow-down').click(function (event){
+                console.log("FOO")
+                /*
+                window.scroll({
+                bottom: 0,
+                behavior: 'smooth'
+                });                                         */
+                //window.scrollTo(0,document.body.scrollHeight);
+
+                console.log($("body").height())
+                $('html, body').animate({
+                    scrollTop: $("body").height()
+                }, 1500);
+            });
+
 
         </script>
 
 
 
         <style>
+
+            
 
             html, body{
                 margin: 0;
@@ -327,7 +351,24 @@
                 position: fixed;
             }
 
+            a{
+                color: white;
+                text-decoration: none;
+            }
   
+            .license-number{
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                z-index: 120;
+                padding: 2.5%;
+                color: white;
+                font-size: 1.5em;
+                font-family: 'Merriweather', serif;
+                line-height: 0.5em;
+
+            }
+
         </style>
 
 
