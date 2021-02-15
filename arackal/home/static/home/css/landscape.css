@@ -45,7 +45,7 @@
 
 
 .services{
-    margin-top: 30%;
+    margin-top: 20%;
     font-size: 2em;
     text-align: center;
 }
@@ -132,7 +132,7 @@
 
 .scroll-arrow{
     text-align: center;
-    padding-top: 15%;
+    padding-top: 10%;
     font-size: 3em;
     animation: 1s ease-in-out 0s infinite bounceArrow;
 
