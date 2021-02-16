@@ -6,17 +6,20 @@ def index(request):
     return render(request, "home/index.html")
 
 def plumbing(request):
+    get_request(request)
     return render(request, "home/plumbing.html")
 
 def heating(request):
+    get_request(request)
     return render(request, "home/heating.html")
 
 def appliances(request):
+    get_request(request)
     return render(request, "home/appliances.html")
 
 
 
-recipients = ['arackalcontact@gmail.com',]
+recipients = ['arackalcontact@gmail.com', 'akbabu200@yahoo.com']
 def get_request(request):
     if(request.method == "POST"):
         name = request.POST.get("name", 'nil')
@@ -41,13 +44,3 @@ def get_request(request):
             fail_silently=False,
         )
 
-
-
-def send_email():
-    send_mail(
-        'New Request',
-        'message',
-        'arackalcontact@gmail.com',
-        ['ngcherian2014@gmail.com'],
-        fail_silently=False,
-    )
