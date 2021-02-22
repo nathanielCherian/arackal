@@ -19,7 +19,7 @@ def appliances(request):
 
 
 
-recipients = ['arackalcontact@gmail.com', 'akbabu200@yahoo.com']
+recipients = ['akbabu200@yahoo.com', 'arackalplumbing@gmail.com']
 def get_request(request):
     if(request.method == "POST"):
         name = request.POST.get("name", 'nil')
