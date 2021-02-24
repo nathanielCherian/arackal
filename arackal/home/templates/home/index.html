@@ -10,368 +10,557 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
         <link rel="stylesheet" media="screen and (orientation: landscape)" href="{% static 'home/css/landscape.css' %}">
-        <link rel="stylesheet" media="screen and (orientation: portrait)" href="{% static 'home/css/landscape.css' %}">
 
     </head>
 
     <body>
 
-
-        <div class="contact">
-            <h1>Contact Us</h1>
-            <h2><a href = "tel:619-808-6911">(619) 808 6911</a></h2>
-            <h2><a href = "tel:619-741-2655">(619) 741 2655</a></h2>
-            <h2><a href = "mailto: arackalplumbing@gmail.com ">arackalplumbing@gmail.com</a></h2>
-        </div>
-
-        <div class="request fade-in">
-            <h1 class="request-text">Request a service</h1>
-
-            <div class="request-form">
-                <form method="POST">
-                    {% csrf_token %}
-                    <input type="text" class="input-name" placeholder="Name" name="name"><br>
-                    <input type="tel" class="input-phone" placeholder="Phone Number" name="number">
-                    <input type="email" class="input-email" placeholder="Email" name="email"><br>
-                    <textarea class="input-message" placeholder="Message" name="message"></textarea>
-
-                    <div style="text-align: center;">
-                        <input type="submit" class="input-submit">
+        <div id="landscape">
+            <div class="contact">
+                <h1>Contact Us</h1>
+                <h2><a href = "tel:619-808-6911">(619) 808 6911</a></h2>
+                <h2><a href = "tel:619-741-2655">(619) 741 2655</a></h2>
+                <h2><a href = "mailto: arackalplumbing@gmail.com ">arackalplumbing@gmail.com</a></h2>
+            </div>
+    
+            <div class="request fade-in">
+                <h1 class="request-text">Request a service</h1>
+    
+                <div class="request-form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" class="input-name" placeholder="Name" name="name"><br>
+                        <input type="tel" class="input-phone" placeholder="Phone Number" name="number">
+                        <input type="email" class="input-email" placeholder="Email" name="email"><br>
+                        <textarea class="input-message" placeholder="Message" name="message"></textarea>
+    
+                        <div style="text-align: center;">
+                            <input type="submit" class="input-submit">
+                        </div>
+    
+                    </form>
+                </div>
+            </div>
+    
+            <div class="content">
+                <h1 class="title fade-in">Arackal</h1>
+    
+                <div class="logo">
+                    <img src="{% static 'home/images/logo.png' %}" class="fade-in">
+                    <h1 class="fade-in">Plumbing & Home Solutions</h1>
+                    <p class="lead fade-in motto">Work Produced by Trust. Labor Prompted by Love.</p>
+                </div>
+    
+                <div class="services landscape">
+                    <div class="service s1">
+                        <a href="{% url 'plumbing'%}" class="service s1">Plumbing</a>
                     </div>
-
-                </form>
-            </div>
-        </div>
-
-        <div class="content">
-            <h1 class="title fade-in">Arackal</h1>
-
-            <div class="logo">
-                <img src="{% static 'home/images/logo.png' %}" class="fade-in">
-                <h1 class="fade-in">Plumbing & Home Solutions</h1>
-                <p class="lead fade-in motto">Work Produced by Trust. Labor Prompted by Love.</p>
-            </div>
-
-            <div class="services landscape">
-                <div class="service s1">
-                    <a href="{% url 'plumbing'%}" class="service s1">Plumbing</a>
+                    <div class="service s2">
+                        <a href="{% url 'heating'%}" class="service s2">Heating</a>
+                    </div>
+                    <div class="service s3">
+                        <a href="{% url 'appliances'%}" class="service s3">Appliances</a>
+                    </div>
                 </div>
-                <div class="service s2">
-                    <a href="{% url 'heating'%}" class="service s2">Heating</a>
+    
+    
+                <div class="scroll-arrow">
+                    <h2 class="fa fa-angle-double-down arrow-down"></h2>
                 </div>
-                <div class="service s3">
-                    <a href="{% url 'appliances'%}" class="service s3">Appliances</a>
-                </div>
+    
             </div>
-
-
-            <div class="scroll-arrow">
-                <h2 class="fa fa-angle-double-down arrow-down"></h2>
+    
+    
+            <div class="license-number">
+                <h2>License No. 1072564</h2>
             </div>
-
-        </div>
-
-
-        <div class="license-number">
-            <h2>License No. 1072564</h2>
-        </div>
-
-
-
-        <div class="about p0">
-
-            <h1>About Us</h1>
-
-            <p class="para p1">
-                Finding the right home appliance technician that you and your family is comfortable with is
-                no easy task. If you need plumbing, heating or appliance related work where you don’t have the
-                technical expertise, you may never know what you can expect from a service technician.
-            </p>
-
-            <p class="para p2">
-                When Babu Kuriakose started doing plumbing work in 2015, he saw a major disconnect in the industry.
-                Customers didn’t know what kind of work was being done inside their homes. Technicians often
-                do more than is needed, and charge the client. Babu Kuriakose believes that the clients deserve
-                to know what options are available, and the clients should be able to make an informed decision. In Arackal Plumbing and Home solutions, you will find friendly, trustworthy service
-
-                technician who will provide accurate and reliable service
-            </p>
-
-            <p class="para p3">We happily serve in San Diego, San Marcos, El Cajon and Escondido areas</p>
-
-
-        </div>
-
-
-        <canvas id="c"></canvas>
-
-
-
-        <script type="module">
-            import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/MTLLoader.js';
-            import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
-            import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js';
-
-
-            function main() {
-                const canvas = document.querySelector('#c');
-                const renderer = new THREE.WebGLRenderer({canvas});
-
-                const scene = new THREE.Scene();
-                scene.background = new THREE.Color(0x7fe3e3)
-
-
-
-
-                const fov = 45;
-                const aspect = 2;  // the canvas default
-                const near = 0.1;
-                const far = 300;
-                const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-
-                scene.add(camera);
-                camera.position.set(-20.39732808127235, 8.491698579320456, 5.191119003284504);
-                camera.lookAt(0,0,0)
-
-
-                const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1.5);
-                scene.add( light );
-
-
-
-
-                
-                const mtlLoader = new MTLLoader();
-
-                {
-                    mtlLoader.load("{% static 'home/models/pipe/pipe.mtl' %}", (mtlParseResult) => {
-                    const objLoader = new OBJLoader2();
-                    const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
-                    objLoader.addMaterials(materials);
-                        objLoader.load("{% static 'home/models/pipe/pipe.obj' %}", (root) => {
-
-                            root.scale.set(1.5,1.5,1.5);
-                            scene.add(root);
-
-                        });
-                    });
-                }
-
-
-                const handleMesh = new THREE.Object3D();
-                handleMesh.position.y -= 0.1;
-                scene.add(handleMesh)
-                {
-                    mtlLoader.load("{% static 'home/models/handle/handle.mtl' %}", (mtlParseResult) => {
-                    const objLoader = new OBJLoader2();
-                    const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
-                    objLoader.addMaterials(materials);
-                        objLoader.load("{% static 'home/models/handle/handle.obj' %}", (root) => {
-
-                            root.scale.set(1.5,1.5,1.5);
-                            handleMesh.add(root);
-
-                        });
-                    });
-                }
-
-                
-
-
-                const blockgeo = new THREE.BoxGeometry(30,30,40);
-                const blockmat = new THREE.MeshPhongMaterial({color:0x63717d, vertexColors:THREE.FaceColors});
-                const blockmesh = new THREE.Mesh(blockgeo, blockmat);
-                blockmesh.geometry.faces[ 2 ].color.setHex( 0x4e5861 ); 
-                blockmesh.geometry.faces[ 3 ].color.setHex( 0x4e5861 ); 
-
-                blockmesh.position.set(12, -5.8, -24);
-
-                scene.add(blockmesh)
-                
-
-
-
-
-                
-                window.addEventListener("scroll", function(event){
-                    const pos = window.scrollY/3876
-                    console.log(pos)
-                    handleMesh.rotation.y = 4*Math.PI*pos
-
-                    if(pos > .3){
-                        $('.content').fadeOut(500);
-                    }else{
-                        $('.content').fadeIn(500);
-                    }
-
-                    if(pos > .3 && pos < .7){
-                        rotateCamera((pos-.3)*2.5)
-                    }
-
-                });
-
-
-                const finalPoint = new THREE.Vector3(7.57651299677906, 8.013077210166774, 20.944300585467776);
-                const mPoint = new THREE.Vector3(-6.6, 8.013077210166774, 15);
-                const startPoint = new THREE.Vector3(-20.39732808127235, 8.013077210166774, 5.191119003284504);
-                const curve = new THREE.CatmullRomCurve3([startPoint, mPoint, finalPoint]);
-                curve.tension = .05;
-                function rotateCamera(t){
-                    camera.position.copy(curve.getPoint(t))
+    
+    
+    
+            <div class="about p0">
+    
+                <h1>About Us</h1>
+    
+                <p class="para p1">
+                    Finding the right home appliance technician that you and your family is comfortable with is
+                    no easy task. If you need plumbing, heating or appliance related work where you don’t have the
+                    technical expertise, you may never know what you can expect from a service technician.
+                </p>
+    
+                <p class="para p2">
+                    When Babu Kuriakose started doing plumbing work in 2015, he saw a major disconnect in the industry.
+                    Customers didn’t know what kind of work was being done inside their homes. Technicians often
+                    do more than is needed, and charge the client. Babu Kuriakose believes that the clients deserve
+                    to know what options are available, and the clients should be able to make an informed decision. In Arackal Plumbing and Home solutions, you will find friendly, trustworthy service
+    
+                    technician who will provide accurate and reliable service
+                </p>
+    
+                <p class="para p3">We happily serve in San Diego, San Marcos, El Cajon and Escondido areas</p>
+    
+    
+            </div>
+    
+    
+            <canvas id="c"></canvas>
+    
+    
+    
+            <script type="module">
+                import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/MTLLoader.js';
+                import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
+                import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js';
+    
+    
+                function main() {
+                    const canvas = document.querySelector('#c');
+                    const renderer = new THREE.WebGLRenderer({canvas});
+    
+                    const scene = new THREE.Scene();
+                    scene.background = new THREE.Color(0x7fe3e3)
+    
+    
+    
+    
+                    const fov = 45;
+                    const aspect = 2;  // the canvas default
+                    const near = 0.1;
+                    const far = 300;
+                    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    
+                    scene.add(camera);
+                    camera.position.set(-20.39732808127235, 8.491698579320456, 5.191119003284504);
                     camera.lookAt(0,0,0)
-
-
-                    if(t > .25){
-                        $('.request').fadeOut(500);
-                        $('.request-form').fadeOut(500);
-                        $('.license-number').fadeOut(500);
-                    }else{
-                        $('.request').fadeIn(500);
-                        $('.license-number').fadeIn(500);
+    
+    
+                    const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1.5);
+                    scene.add( light );
+    
+    
+    
+    
+                    
+                    const mtlLoader = new MTLLoader();
+    
+                    {
+                        mtlLoader.load("{% static 'home/models/pipe/pipe.mtl' %}", (mtlParseResult) => {
+                        const objLoader = new OBJLoader2();
+                        const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
+                        objLoader.addMaterials(materials);
+                            objLoader.load("{% static 'home/models/pipe/pipe.obj' %}", (root) => {
+    
+                                root.scale.set(1.5,1.5,1.5);
+                                scene.add(root);
+    
+                            });
+                        });
                     }
-
-                    if(t > .45){
-                        $('.contact').fadeIn(500);
-
-                    }else{
-                        $('.contact').fadeOut(500);
+    
+    
+                    const handleMesh = new THREE.Object3D();
+                    handleMesh.position.y -= 0.1;
+                    scene.add(handleMesh)
+                    {
+                        mtlLoader.load("{% static 'home/models/handle/handle.mtl' %}", (mtlParseResult) => {
+                        const objLoader = new OBJLoader2();
+                        const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
+                        objLoader.addMaterials(materials);
+                            objLoader.load("{% static 'home/models/handle/handle.obj' %}", (root) => {
+    
+                                root.scale.set(1.5,1.5,1.5);
+                                handleMesh.add(root);
+    
+                            });
+                        });
                     }
-
-
-                    if(t > .75){
-                        $('.p0').fadeIn(500);
-
-                    }else{
-                        $('.p0').fadeOut(500);
+    
+                    
+    
+    
+                    const blockgeo = new THREE.BoxGeometry(30,30,40);
+                    const blockmat = new THREE.MeshPhongMaterial({color:0x63717d, vertexColors:THREE.FaceColors});
+                    const blockmesh = new THREE.Mesh(blockgeo, blockmat);
+                    blockmesh.geometry.faces[ 2 ].color.setHex( 0x4e5861 ); 
+                    blockmesh.geometry.faces[ 3 ].color.setHex( 0x4e5861 ); 
+    
+                    blockmesh.position.set(12, -5.8, -24);
+    
+                    scene.add(blockmesh)
+                    
+    
+    
+    
+    
+                    
+                    window.addEventListener("scroll", function(event){
+                        const pos = window.scrollY/3876
+                        console.log(pos)
+                        handleMesh.rotation.y = 4*Math.PI*pos
+    
+                        if(pos > .3){
+                            $('.content').fadeOut(500);
+                        }else{
+                            $('.content').fadeIn(500);
+                        }
+    
+                        if(pos > .3 && pos < .7){
+                            rotateCamera((pos-.3)*2.5)
+                        }
+    
+                    });
+    
+    
+                    const finalPoint = new THREE.Vector3(7.57651299677906, 8.013077210166774, 20.944300585467776);
+                    const mPoint = new THREE.Vector3(-6.6, 8.013077210166774, 15);
+                    const startPoint = new THREE.Vector3(-20.39732808127235, 8.013077210166774, 5.191119003284504);
+                    const curve = new THREE.CatmullRomCurve3([startPoint, mPoint, finalPoint]);
+                    curve.tension = .05;
+                    function rotateCamera(t){
+                        camera.position.copy(curve.getPoint(t))
+                        camera.lookAt(0,0,0)
+    
+    
+                        if(t > .25){
+                            $('.request').fadeOut(500);
+                            $('.request-form').fadeOut(500);
+                            $('.license-number').fadeOut(500);
+                        }else{
+                            $('.request').fadeIn(500);
+                            $('.license-number').fadeIn(500);
+                        }
+    
+                        if(t > .45){
+                            $('.contact').fadeIn(500);
+    
+                        }else{
+                            $('.contact').fadeOut(500);
+                        }
+    
+    
+                        if(t > .75){
+                            $('.p0').fadeIn(500);
+    
+                        }else{
+                            $('.p0').fadeOut(500);
+                        }
+    
+                        if(t > .80){
+                            $('.p1').fadeIn(500);
+    
+                        }else{
+                            $('.p1').fadeOut(500);
+                        }
+    
+                        if(t > .85){
+                            $('.p2').fadeIn(500);
+    
+                        }else{
+                            $('.p2').fadeOut(500);
+                        }
+    
+                        if(t > .90){
+                            $('.p3').fadeIn(500);
+    
+                        }else{
+                            $('.p3').fadeOut(500);
+                        }
+    
                     }
-
-                    if(t > .80){
-                        $('.p1').fadeIn(500);
-
-                    }else{
-                        $('.p1').fadeOut(500);
+                    
+    
+    
+    
+                    function render(time){
+                        time *= 0.001;
+    
+                        if(resizeRendererToDisplaYSize(renderer)){
+                            const canvas = renderer.domElement;
+                            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                            camera.updateProjectionMatrix();
+                        }
+    
+    
+                       
+                        renderer.render(scene, camera);
+                        requestAnimationFrame(render);
                     }
-
-                    if(t > .85){
-                        $('.p2').fadeIn(500);
-
-                    }else{
-                        $('.p2').fadeOut(500);
+    
+    
+    
+                    function resizeRendererToDisplaYSize(renderer) {
+                        const canvas = renderer.domElement;
+                        const pixelRatio = window.devicePixelRatio;
+                        const width = canvas.clientWidth * pixelRatio | 0;
+                        const height = canvas.clientHeight * pixelRatio | 0;
+                        const needResize = canvas.width !== width || canvas.height !== height;
+                        if (needResize){
+                            renderer.setSize(width, height, false);
+                        }
+                        return needResize;
                     }
+    
+                    requestAnimationFrame(render);
+    
+                }
 
-                    if(t > .90){
-                        $('.p3').fadeIn(500);
+                if(window.matchMedia("(max-width: 700px)")){
+                    main()
+                }
+    
+    
+                $('.request-text').click(function (event){
+                    $('.request-form').fadeIn(1000);
+                });
+    
+                $('.arrow-down').click(function (event){
+                    console.log("FOO")
+                    /*
+                    window.scroll({
+                    bottom: 0,
+                    behavior: 'smooth'
+                    });                                         */
+                    //window.scrollTo(0,document.body.scrollHeight);
+    
+                    console.log($("body").height())
+                    $('html, body').animate({
+                        scrollTop: $("body").height()
+                    }, 1500);
+                });
+    
+    
+            </script>
+    
+        </div>
+        
+        <div id="portrait" class="content">
 
-                    }else{
-                        $('.p3').fadeOut(500);
-                    }
 
+            <div class="box1">
+                <div class="portrait-logo content">
+                    <h1>Arackal</h1>
+                    <img src="{% static 'home/images/logo.png' %}" class="fade-in">
+                    <h2 class="fade-in">Plumbing & Home Solutions</h2>
+                    <p class="lead fade-in motto">Work Produced by Trust. Labor Prompted by Love.</p>
+                </div>
+
+                <div class="services-portrait">
+                    <a href="{% url 'plumbing'%}" >Plumbing</a>
+                    <a href="{% url 'heating'%}" >Heating</a>
+                    <a href="{% url 'appliances'%}" >Appliances</a>
+                </div>
+
+            </div>
+
+
+            <div class="box2">
+                <h1 class="about-portrait">About Us</h1>
+
+                <p class="para">
+                    Finding the right home appliance technician that you and your family is comfortable with is
+                    no easy task. If you need plumbing, heating or appliance related work where you don’t have the
+                    technical expertise, you may never know what you can expect from a service technician.
+                </p>
+    
+                <p class="para">
+                    When Babu Kuriakose started doing plumbing work in 2015, he saw a major disconnect in the industry.
+                    Customers didn’t know what kind of work was being done inside their homes. Technicians often
+                    do more than is needed, and charge the client. Babu Kuriakose believes that the clients deserve
+                    to know what options are available, and the clients should be able to make an informed decision. In Arackal Plumbing and Home solutions, you will find friendly, trustworthy service
+    
+                    technician who will provide accurate and reliable service
+                </p>
+    
+                <p class="para">We happily serve in San Diego, San Marcos, El Cajon and Escondido areas</p>
+            </div>
+
+            <div class="box3">
+                <div class="request-form">
+                    <h1>Request a service!</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" class="input-name" placeholder="Name" name="name"><br>
+                        <input type="tel" class="input-phone" placeholder="Phone Number" name="number">
+                        <input type="email" class="input-email" placeholder="Email" name="email"><br>
+                        <textarea class="input-message" placeholder="Message" name="message"></textarea>
+    
+                        <div style="text-align: center;">
+                            <input type="submit" class="input-submit">
+                        </div>
+    
+                    </form>
+                </div>
+            </div>
+
+
+
+            <style>
+
+                .box1{
+                    top:0;
+                    left:0;
+                    background-color: #252a2e;
+                    height: 100vh;
+                    width: 100%;
+                    margin: 0;
+                }
+
+                svg{
+                    width: 100%;
+                    height:100%;
+                    position: fixed;                    
+                }
+
+                svg > path:first-child {
+                    fill: #7fe3e3;
+                }
+                
+                svg > path:last-child {
+                    fill: #252a2e;
+                }
+
+
+                .content{
+                    z-index: 1000;
+                    color: white;
+                    font-family: 'Merriweather', serif;
                 }
                 
 
 
+                .portrait-logo{
+                    padding: 3%;
+                    text-align: center;
+                }
 
-                function render(time){
-                    time *= 0.001;
+                .portrait-logo img{
+                    width: 50%;
+                    height: auto;
+                    padding: 0;
+                    margin: 0;
+                }
 
-                    if(resizeRendererToDisplaYSize(renderer)){
-                        const canvas = renderer.domElement;
-                        camera.aspect = canvas.clientWidth / canvas.clientHeight;
-                        camera.updateProjectionMatrix();
-                    }
+                .portrait-logo h1{
+                    font-size: 5em;
+                }
 
+                .motto{
+                    color: #63717d;
+                }
 
-                   
-                    renderer.render(scene, camera);
-                    requestAnimationFrame(render);
+                .services-portrait {
+                    margin-top: 2%;
+                    text-align: center;
+                    padding: 1%;
+                }
+                .services-portrait a{
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1.5em;
+                    padding: 2%;
                 }
 
 
-
-                function resizeRendererToDisplaYSize(renderer) {
-                    const canvas = renderer.domElement;
-                    const pixelRatio = window.devicePixelRatio;
-                    const width = canvas.clientWidth * pixelRatio | 0;
-                    const height = canvas.clientHeight * pixelRatio | 0;
-                    const needResize = canvas.width !== width || canvas.height !== height;
-                    if (needResize){
-                        renderer.setSize(width, height, false);
-                    }
-                    return needResize;
+                .box2{
+                    margin: 0;
+                    padding: 2%;
+                    background-color: #808080;
                 }
 
-                requestAnimationFrame(render);
+                .box2 .about-portrait{
+                    text-align: center;
+                }
+                
+                .box2 p{
+                    font-size: 1.2em;
+                }
 
-            }
+                .box3{
+                    top:0;
+                    left:0;
+                    background-color: #7fe3e3;
+                    width: 100%;
+                    margin: 0;
+                }
 
-            main()
+                .request-form{
+                    margin:0;
+                    padding:5%;
+                    text-align: center;
+                }
+
+                .request-form input{
+                    margin: 1%;
+                }
+
+                .request-form textarea{
+                    margin: 1%;
+                }
+
+                .input-name{
+                    width: 70%;
+                    padding: 1.5%;
+                    font-size: 1.5em;
+                }
+                .input-phone{
+                    width: 70%;
+                    padding: 1.5%;
+                    font-size: 1.5em;
+                }
+                .input-email{
+                    width: 70%;
+                    padding: 1.5%;
+                    font-size: 1.5em;
+                }
+                .input-message{
+                    width: 70%;
+                    height: 20%;
+                    padding: 1.5%;
+                    font-size: 1.5em;
+                }
+                .input-submit{
+                    width: 40%;
+                    height: 10%;
+                    padding: 5%;
+                }
 
 
-            $('.request-text').click(function (event){
-                $('.request-form').fadeIn(1000);
-            });
-
-            $('.arrow-down').click(function (event){
-                console.log("FOO")
-                /*
-                window.scroll({
-                bottom: 0,
-                behavior: 'smooth'
-                });                                         */
-                //window.scrollTo(0,document.body.scrollHeight);
-
-                console.log($("body").height())
-                $('html, body').animate({
-                    scrollTop: $("body").height()
-                }, 1500);
-            });
+            </style>
 
 
-        </script>
-
-
-
-        <style>
-
-            
-
-            html, body{
-                margin: 0;
-                height: 100%;
-            }
-
-            body{
-                height: 500vh;
-            }
-
-            #c{
-                width: 100%;
-                height: 100%;
-                display: block;
-                position: fixed;
-            }
-
-            a{
-                color: white;
-                text-decoration: none;
-            }
-  
-            .license-number{
-                position: fixed;
-                bottom: 0;
-                right: 0;
-                z-index: 120;
-                padding: 2.5%;
-                color: white;
-                font-size: 1.5em;
-                font-family: 'Merriweather', serif;
-                line-height: 0.5em;
-
-            }
-
-        </style>
+        </div>
 
 
     </body>
+
+
+    <style>
+        @media (max-width: 1000px) {
+            #landscape{
+                display: none;
+            }
+
+            #portrait{
+                display: block;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            #landscape{
+                display: block;
+            }
+
+            #portrait{
+                display: none;
+            }
+        }
+
+        html, body{
+            margin: 0;
+            height: 100%;
+        }   
+
+    </style>
+
+
 
 </html>
