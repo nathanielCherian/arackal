@@ -28,14 +28,14 @@
 <body>
     <article>
 
-    <div class="container-fluid">
+    <div class="container-fluid page-1">
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-4 main-col">
 
                 <div class="container-fluid logo-container">
 
-                    <div class="row row-cols-1 ">
+                    <div class="row row-cols-1">
 
                         <div class="col">
                             <h1 class="logo-title">Arackal</h1>
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="col logo-motto__container">
-                            <p class="lead loggo-motto">Work Produced by Trust. Labor Prompted by Love.</p>
+                            <p class="lead logo-motto">Work Produced by Trust. Labor Prompted by Love.</p>
                         </div>
 
                     </div>
@@ -60,36 +60,168 @@
 
                 <div class="container-fluid services-btns">
                     
-                    <div class="row row-cols-1">
+                    <div class="row">
 
-                        <div class="col service-btn__container">
+                        <div class="col-md-12 d-none d-md-block service-btn__container">
                             <a href="#" class="service-btn">Plumbing</a>
                         </div>
 
-                        <div class="col service-btn__container">
+                        <div class="col-md-12 d-none d-md-block service-btn__container">
                             <a href="#" class="service-btn">Plumbing</a>
                         </div>
 
-                        <div class="col service-btn__container">
+                        <div class="col-md-12 d-none d-md-block service-btn__container">
                             <a href="#" class="service-btn">Plumbing</a>
                         </div>
 
-                        <div class="col service-btn__container">
+                        <div class="col-md-12 service-btn__container">
                             <a href="#" class="service-btn fa fa-angle-double-down arrow-down"></a>
                         </div>
 
                     </div>
+                
+                </div>
+
+            </div>
+
+            <div class="col-md-4 main-col">
+                <!-- Hidden on desktop -->
+                <div class="container-fluid service-btns d-md-none h-100">
+                    <div class="row pt-5">
+                        <div class="col-md-12 p-5 service-btn__container">
+                            <a href="#" class="service-btn">Plumbing</a>
+                        </div>
+
+                        <div class="col-md-12 p-5 service-btn__container">
+                            <a href="#" class="service-btn">Plumbing</a>
+                        </div>
+
+                        <div class="col-md-12 p-5 service-btn__container">
+                            <a href="#" class="service-btn">Plumbing</a>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <div class="container-fluid request-service">
+                                <div class="row justify-content-end row-cols-1">
+                                    <div class="col request-service__container">
+                                        <button class="request-service-btn btn"><a href="#request-service">Request a Service</a></button>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 main-col">
+
+                <div class="container-fluid request-service d-none d-md-block">
+                    <!--Hidden on Moble-->
+                    <div class="row justify-content-end row-cols-1">
+                        <div class="col request-service__container">
+                            <button class="request-service-btn btn">Request a Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid about-us d-md-none">
+                    <!--Hidden on Desktop-->
+                    <div class="row">
+                        <div class="col">
+                            <h2>About us</h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <p>Finding the right home appliance technician that you and your family is comfortable with is no easy task. If you need plumbing, heating or appliance related work where you don’t have the technical expertise, you may never know what you can expect from a service technician.</p>
+                            <p>When Babu Kuriakose started doing plumbing work in 2015, he saw a major disconnect in the industry. Customers didn’t know what kind of work was being done inside their homes. Technicians often do more than is needed, and charge the client. Babu Kuriakose believes that the clients deserve to know what options are available, and the clients should be able to make an informed decision. In Arackal Plumbing and Home solutions, you will find friendly, trustworthy service technician who will provide accurate and reliable service</p>
+                            <p>We happily serve in San Diego, San Marcos, El Cajon and Escondido areas</p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="col-md-4 d-md-none">
+                <!--Hidden on desktop-->
+
+                <div class="container-fluid request-service" id="request-service">
+                    <form class="form-horizontal">
+                        <fieldset>
+                        
+                        <!-- Form Name -->
+                        <legend class="form-name">Request a service</legend>
+                        
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Name</label>  
+                          <div class="col-md-4">
+                          <input id="textinput" name="textinput" type="text" placeholder="Name" class="form-control input-md">
+                          </div>
+                        </div>
+                        
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="Email">Email</label>  
+                          <div class="col-md-4">
+                          <input id="Email" name="Email" type="email" placeholder="email@example.com" class="form-control input-md">
+                          </div>
+                        </div>
+                        
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="Phone Number">Phone Number</label>  
+                          <div class="col-md-4">
+                          <input id="Phone Number" name="Phone Number" type="tel" placeholder="111 222 3344" class="form-control input-md" required="">
+                          </div>
+                        </div>
+                        
+                        <!-- Textarea -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="Message">Message</label>
+                          <div class="col-md-4">                     
+                            <textarea class="form-control" id="Message" name="Message"></textarea>
+                          </div>
+                        </div>
+                        
+                        </fieldset>
+                        </form>
+                        
+                        <div class="row justify-content-center">
+                            <div class="col license-number">
+                                <p class="lead">License No. 1072564</p>
+                            </div>
+                        </div>
 
                 </div>
 
             </div>
 
-            <div class="col-md-4"></div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 d-md-none">
+                <!--Hidden on desktop-->
                 
+                <div class="container-fluid contact-us">
 
+                    <div class="row row-cols-1">
+                        <div class="col">
+                            <h2>Contact Us</h2>
+                        </div>
+
+                        <div class="col">
+                            <a href="#"><span class="fa fa-phone contact-icon"></span></a>
+                            <a href="#"><span class="fa fa-envelope contact-icon"></span></a>
+                        </div>
+
+                    </div>
+
+                </div>
+                
             </div>
+
 
         </div>
     </div>
@@ -108,8 +240,78 @@
 @media only screen and (max-width: 768px) {
     /* Mobile Devices */
 
+    .logo-container{
+        text-align: center;
+        margin-top: 15%;
+        padding: 3%;
+    }
+
+    .logo-img{
+        width: 15em;
+    }
+
+    .logo-title{
+        font-size: 5em;
+    }
     
+    .logo-slogan{
+        font-size: 2em;
+    }
+
+    .logo-motto{
+        font-size: .8em;
+    }
+
+    .service-btn__container{
+        padding: 5%;
+        text-align: center;
+    }
+
+    .service-btn{
+        font-size: 2em;
+    }
+
+    .request-service__container{
+        text-align: center;
+        padding: 10%;
+    }
+
+    .request-service-btn{
+        padding: 5%;
+        font-size: 1.5em;
+    }
+
+
+    .about-us{
+        text-align: center;
+    }
+
+
+    .request-service{
+        padding: 5%;
+    }
+
+    .form-name{
+        text-align: center;
+    }
+
+    .license-number{
+        text-align: center;
+    }
+
+
+    .contact-us{
+        padding: 5%;
+        text-align: center;
+    }
+
+    .contact-icon{
+        font-size: 3em;
+        margin: 1em;
+    }
+
 }
+
 
 @media only screen and (min-width: 768px) {
     /* Desktop Devices */
@@ -128,14 +330,6 @@
         font-size: 6em;
     }
 
-    .logo-slogan__container{
-        font-size: 2em;
-    }
-
-    .logo-slogan-container{
-        padding: 3%;
-    }
-
     .service-btn__container{
         padding: 5%;
         text-align: center;
@@ -143,6 +337,16 @@
 
     .service-btn{
         font-size: 2.5em;
+    }
+
+    .request-service__container{
+        text-align: end;
+        padding: 10%;
+    }
+
+    .request-service-btn{
+        background-color: none;
+        font-size: 2em;
     }
 
 
@@ -162,7 +366,9 @@ a:hover{
 }
 
 
-
+.main-col{
+    height: 100vh;
+}
 
 
 
