@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 
 def index(request):
     get_request(request)
-    return render(request, "home/index.html")
+    return render(request, "home/i.html")
 
 def plumbing(request):
     get_request(request)

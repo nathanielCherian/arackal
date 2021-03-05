@@ -105,7 +105,24 @@
             <canvas id="c"></canvas>
     
     
-    
+            <script>
+                window.addEventListener("resize", getTemplate);
+
+                CurrentPage = 'DesktopPage';
+
+                function getTemplate() {
+                    if (screen.width >= 767 && CurrentPage != 'DesktopPage') {
+                        return window.location.replace("/");
+                    }
+
+                    if (screen.width < 767 && CurrentPage != 'MobilePage') {
+                        return window.location.replace("/plumbing/");
+                    }
+                }
+
+                getTemplate();
+            </script>
+
             <script type="module">
                 import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/MTLLoader.js';
                 import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
@@ -314,12 +331,6 @@
     
                 $('.arrow-down').click(function (event){
                     console.log("FOO")
-                    /*
-                    window.scroll({
-                    bottom: 0,
-                    behavior: 'smooth'
-                    });                                         */
-                    //window.scrollTo(0,document.body.scrollHeight);
     
                     console.log($("body").height())
                     $('html, body').animate({
