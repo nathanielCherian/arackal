@@ -1,3 +1,4 @@
+from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.shortcuts import render, HttpResponse
 from django.core.mail import send_mail
 
@@ -17,6 +18,10 @@ def appliances(request):
     get_request(request)
     return render(request, "home/appliances.html")
 
+
+@xframe_options_sameorigin
+def faucet_background(request):
+    return render(request, "home/background.html")
 
 
 recipients = ['akbabu200@yahoo.com', 'arackalplumbing@gmail.com']

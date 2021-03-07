@@ -9,4 +9,7 @@ urlpatterns = [
     path('heating/', views.heating, name="heating"),
     path('appliances/', views.appliances, name="appliances"),
 
+
+    path('background/', views.faucet_background, name="background"),
+
 ]
