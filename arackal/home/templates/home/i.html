@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
@@ -252,29 +252,32 @@
                 </div>
             </div>
 
-            <div class="col-4 main-col"></div>
+            <div class="col-3 main-col"></div>
 
-            <div class="col-4 main-col">
-                <div class="container-fluid abooutus-container">
+            <div class="col-5 main-col">
+                <div class="container-fluid aboutus-container">
                     <h1>About Us</h1>
     
-                    <p class="para p1">
-                        Finding the right home appliance technician that you and your family is comfortable with is
-                        no easy task. If you need plumbing, heating or appliance related work where you don’t have the
-                        technical expertise, you may never know what you can expect from a service technician.
-                    </p>
-        
-                    <p class="para p2">
-                        When Babu Kuriakose started doing plumbing work in 2015, he saw a major disconnect in the industry.
-                        Customers didn’t know what kind of work was being done inside their homes. Technicians often
-                        do more than is needed, and charge the client. Babu Kuriakose believes that the clients deserve
-                        to know what options are available, and the clients should be able to make an informed decision. In Arackal Plumbing and Home solutions, you will find friendly, trustworthy service
-        
-                        technician who will provide accurate and reliable service
-                    </p>
-        
-                    <p class="para p3">We happily serve in San Diego, San Marcos, El Cajon and Escondido areas</p>
-        
+                    <div class="para-text">
+                        <p class="para p1">
+                            Finding the right home appliance technician that you and your family is comfortable with is
+                            no easy task. If you need plumbing, heating or appliance related work where you don’t have the
+                            technical expertise, you may never know what you can expect from a service technician.
+                        </p>
+            
+                        <p class="para p2">
+                            When Babu Kuriakose started doing plumbing work in 2015, he saw a major disconnect in the industry.
+                            Customers didn’t know what kind of work was being done inside their homes. Technicians often
+                            do more than is needed, and charge the client. Babu Kuriakose believes that the clients deserve
+                            to know what options are available, and the clients should be able to make an informed decision. In Arackal Plumbing and Home solutions, you will find friendly, trustworthy service
+            
+                            technician who will provide accurate and reliable service
+                        </p>
+            
+                        <p class="para p3">We happily serve in San Diego, San Marcos, El Cajon and Escondido areas</p>    
+                    </div>
+
+
                 </div>
             </div>
 
@@ -423,6 +426,28 @@
         font-size: 2em;
     }
 
+    
+
+    .contact-container{
+        padding: 8%;
+    }
+
+    .aboutus-container{
+        padding: 8%;
+    }
+
+    .para-text{
+        margin-top: 3%;
+    }
+
+    .aboutus-container h1{
+        text-align: center;
+    }
+
+    .aboutus-container .para{
+        font-size: 2.2vh;
+    }
+
 
 }
 
@@ -450,163 +475,40 @@ a:hover{
 
 
 
-<script>
-        $(function () { // wait for document ready
-		// init
-		var controller = new ScrollMagic.Controller();
 
-		// define movement of panels
-		var wipeAnimation = new TimelineMax()
-            .fromTo(".page-1", 1, {opacity:1, display:"block"}, {opacity:0, display:"none", ease: Linear.easeNone, delay:1})
-            .fromTo(".page-2", 1, {opacity: 0}, {opacity:1,ease: Linear.easeNone, delay:.5})
+<script src="{% static 'home/scripts/enquire.min.js' %}"></script>
+<script type="text/javascript">
 
+enquire.register("screen and (min-width: 768px)", {
+    match : function() {
+        // Load a mobile JS file
 
-		// create scene to pin and link animation
-		new ScrollMagic.Scene({
-				triggerElement: "#page-container",
-				triggerHook: "onLeave",
-				duration: "400%"
-			})
-			.setPin("#page-container")
-			.setTween(wipeAnimation)
-			.addIndicators() // add indicators (requires plugin)
-			.addTo(controller);
-	});
-</script>
+        var script=document.createElement('script');
+        script.type='module';
+        script.src= "{% static 'home/scripts/faucetbg.js' %}";
 
+        $("body").append(script);
 
-
-<script type="module">
-import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/MTLLoader.js';
-import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
-import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js';
-
-function main() {
-    const canvas = document.querySelector('#c');
-    const renderer = new THREE.WebGLRenderer({canvas});
-
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x7fe3e3)
-
-
-
-
-    const fov = 45;
-    const aspect = 2;  // the canvas default
-    const near = 0.1;
-    const far = 300;
-    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-
-    scene.add(camera);
-    camera.position.set(-20.39732808127235, 8.491698579320456, 5.191119003284504);
-    camera.lookAt(0,0,0)
-
-
-    const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1.5);
-    scene.add( light );
-
-
-
-
-    
-    const mtlLoader = new MTLLoader();
-
-    {
-        mtlLoader.load("{% static 'home/models/pipe/pipe.mtl' %}", (mtlParseResult) => {
-        const objLoader = new OBJLoader2();
-        const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
-        objLoader.addMaterials(materials);
-            objLoader.load("{% static 'home/models/pipe/pipe.obj' %}", (root) => {
-
-                root.scale.set(1.5,1.5,1.5);
-                scene.add(root);
-
-            });
+        /*
+        jQuery.ajax({
+            url: "{% static 'home/scripts/faucetbg.js' %}",
+            dataType: "module",
+            cache: true
+        }).done(function() {
+            console.log("loaded")
         });
-    }
-
-
-    const handleMesh = new THREE.Object3D();
-    handleMesh.position.y -= 0.1;
-    scene.add(handleMesh)
-    {
-        mtlLoader.load("{% static 'home/models/handle/handle.mtl' %}", (mtlParseResult) => {
-        const objLoader = new OBJLoader2();
-        const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
-        objLoader.addMaterials(materials);
-            objLoader.load("{% static 'home/models/handle/handle.obj' %}", (root) => {
-
-                root.scale.set(1.5,1.5,1.5);
-                handleMesh.add(root);
-
+        */
+        /*
+        $.getScript( "{% static 'home/scripts/faucetbg.js' %}" )
+            .done(function( script, textStatus ) {
+                console.log( textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+                console.log( exception );
             });
-        });
-    }
-
-    
-
-
-    const blockgeo = new THREE.BoxGeometry(30,30,40);
-    const blockmat = new THREE.MeshPhongMaterial({color:0x63717d, vertexColors:THREE.FaceColors});
-    const blockmesh = new THREE.Mesh(blockgeo, blockmat);
-    blockmesh.geometry.faces[ 2 ].color.setHex( 0x4e5861 ); 
-    blockmesh.geometry.faces[ 3 ].color.setHex( 0x4e5861 ); 
-
-    blockmesh.position.set(12, -5.8, -24);
-
-    scene.add(blockmesh)
-    
-
-
-    window.addEventListener("scroll", function(event){
-        const pos =  $(window).scrollTop() / ($(document).height() - $(window).height());
-        console.log(pos)
-        handleMesh.rotation.y = 2*Math.PI*pos
-    });
-
-
-
-    function render(time){
-        time *= 0.001;
-
-        if(resizeRendererToDisplaYSize(renderer)){
-            const canvas = renderer.domElement;
-            camera.aspect = canvas.clientWidth / canvas.clientHeight;
-            camera.updateProjectionMatrix();
+        */
         }
-
-        renderer.render(scene, camera);
-        requestAnimationFrame(render);
-    }
-
-
-
-    function resizeRendererToDisplaYSize(renderer) {
-        const canvas = renderer.domElement;
-        const pixelRatio = window.devicePixelRatio;
-        const width = canvas.clientWidth * pixelRatio | 0;
-        const height = canvas.clientHeight * pixelRatio | 0;
-        const needResize = canvas.width !== width || canvas.height !== height;
-        if (needResize){
-            renderer.setSize(width, height, false);
-        }
-        return needResize;
-    }
-
-    requestAnimationFrame(render);
-
-}
-
-main()
-
-</script>
-
-
-
-<script>
-
-
-
+})
 
 </script>
 
