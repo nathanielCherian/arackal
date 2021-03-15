@@ -32,6 +32,9 @@ def get_request(request):
         email = request.POST.get("email", 'nil')
         message = request.POST.get("message", 'nil')
 
+        print(name, number, email, message)
+
+        return
         email_message = f"""
         NAME:         {name}
         PHONE NUMBER: {number}

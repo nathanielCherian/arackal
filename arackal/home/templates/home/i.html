@@ -41,6 +41,14 @@
 
     <article id="page-container">
 
+    <!-- Hidden on dekstop 
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="svg-background d-md-none">
+        <path d="M 100 100 L 60 100 L 40 0 L 100 0 z" class="c1"></path>
+        <path d="M 0 0 L 40 0 L 60 100 L 0 100 z" class="c2"></path>
+    </svg>
+    -->
+
+
     <div class="container-fluid page page-1">
         <div class="row">
 
@@ -76,15 +84,15 @@
                     <div class="row">
 
                         <div class="col-md-12 d-none d-md-block service-btn__container">
-                            <a href="#" class="service-btn">Plumbing</a>
+                            <a href="{% url 'plumbing' %}" class="service-btn">Plumbing</a>
                         </div>
 
                         <div class="col-md-12 d-none d-md-block service-btn__container">
-                            <a href="#" class="service-btn">Plumbing</a>
+                            <a href="{% url 'heating' %}" class="service-btn">Heating</a>
                         </div>
 
                         <div class="col-md-12 d-none d-md-block service-btn__container">
-                            <a href="#" class="service-btn">Plumbing</a>
+                            <a href="{% url 'appliances' %}" class="service-btn">Appliances</a>
                         </div>
 
                         <div class="col-md-12 service-btn__container">
@@ -102,15 +110,15 @@
                 <div class="container-fluid service-btns d-md-none h-100">
                     <div class="row pt-5">
                         <div class="col-md-12 p-5 service-btn__container">
-                            <a href="#" class="service-btn">Plumbing</a>
+                            <a href="{% url 'plumbing' %}" class="service-btn">Plumbing</a>
                         </div>
 
                         <div class="col-md-12 p-5 service-btn__container">
-                            <a href="#" class="service-btn">Plumbing</a>
+                            <a href="{% url 'heating' %}" class="service-btn">Heating</a>
                         </div>
 
                         <div class="col-md-12 p-5 service-btn__container">
-                            <a href="#" class="service-btn">Plumbing</a>
+                            <a href="{% url 'appliances' %}" class="service-btn">Appliances</a>
                         </div>
                         
                         <div class="col-md-12">
@@ -128,16 +136,20 @@
 
             </div>
 
+
             <div class="col-md-4 main-col">
 
                 <div class="container-fluid request-service d-none d-md-block">
                     <!--Hidden on Moble-->
                     <div class="row justify-content-end row-cols-1">
                         <div class="col request-service__container">
-                            <button class="request-service-btn btn">Request a Service</button>
+                            <button class="request-service-btn btn">Request a Service</button>                    
                         </div>
+                    
                     </div>
+                    
                 </div>
+
 
                 <div class="container-fluid about-us d-md-none">
                     <!--Hidden on Desktop-->
@@ -155,8 +167,9 @@
                         </div>
                     </div>
                 </div>
-            
+
             </div>
+
 
             <div class="col-md-4 d-md-none">
                 <!--Hidden on desktop-->
@@ -210,8 +223,6 @@
                         </div>
 
                 </div>
-
-            </div>
 
 
             <div class="col-md-4 d-md-none">
@@ -290,12 +301,36 @@
 </body>
 
 
+<script>
+
+</script>
+
 
 <style>
 
 
 @media only screen and (max-width: 768px) {
     /* Mobile Devices */
+
+
+    .page-1{
+        background-color: #7fe3e3;
+    }
+
+    .svg-background{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+    }
+
+    .c1{
+        fill: #7fe3e3;
+    }
+
+    .c2{
+        fill: #252a2e;
+    }
+
 
     .logo-container{
         text-align: center;
@@ -331,6 +366,10 @@
     .request-service__container{
         text-align: center;
         padding: 10%;
+    }
+
+    .submit-btn-container{
+        text-align: center;
     }
 
     .request-service-btn{
@@ -419,14 +458,27 @@
     .request-service__container{
         text-align: end;
         padding: 10%;
+        z-index: 1001;
     }
 
     .request-service-btn{
         background-color: none;
         font-size: 2em;
+        color: white;
     }
 
-    
+    .request-service-btn:hover{
+        color: white;
+        text-decoration: underline;
+    }
+
+
+    .request-form__container{
+        padding: 10%;
+        padding-top: 0%;
+        text-align: center;
+    }
+
 
     .contact-container{
         padding: 8%;
@@ -446,6 +498,7 @@
 
     .aboutus-container .para{
         font-size: 2.2vh;
+        text-align: center;
     }
 
 
@@ -481,34 +534,19 @@ a:hover{
 
 enquire.register("screen and (min-width: 768px)", {
     match : function() {
-        // Load a mobile JS file
 
         var script=document.createElement('script');
         script.type='module';
         script.src= "{% static 'home/scripts/faucetbg.js' %}";
+        script.id = "backgroundscript"
 
         $("body").append(script);
 
-        /*
-        jQuery.ajax({
-            url: "{% static 'home/scripts/faucetbg.js' %}",
-            dataType: "module",
-            cache: true
-        }).done(function() {
-            console.log("loaded")
-        });
-        */
-        /*
-        $.getScript( "{% static 'home/scripts/faucetbg.js' %}" )
-            .done(function( script, textStatus ) {
-                console.log( textStatus );
-            })
-            .fail(function( jqxhr, settings, exception ) {
-                console.log( exception );
-            });
-        */
         }
-})
+});
+
+
+
 
 </script>
 
