@@ -12,6 +12,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
+    
     <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 
     <title>Arackal P&H</title>
@@ -33,9 +39,9 @@
         <canvas id="c"></canvas>
     </div>
 
-    <article>
+    <article id="page-container">
 
-    <div class="container-fluid page-1">
+    <div class="container-fluid page page-1">
         <div class="row">
 
             <div class="col-md-4 main-col">
@@ -234,6 +240,47 @@
     </div>
     
 
+    <!-- Desktop Only -->
+    <div class="container-fluid page page-2 d-none d-md-block">
+        <div class="row">
+            <div class="col-4 main-col">
+                <div class="container-fluid contact-container">
+                    <h1>Contact Us</h1>
+                    <h2><a href = "tel:619-808-6911">(619) 808 6911</a></h2>
+                    <h2><a href = "tel:619-741-2655">(619) 741 2655</a></h2>
+                    <h2><a href = "mailto: arackalplumbing@gmail.com ">arackalplumbing@gmail.com</a></h2>
+                </div>
+            </div>
+
+            <div class="col-4 main-col"></div>
+
+            <div class="col-4 main-col">
+                <div class="container-fluid abooutus-container">
+                    <h1>About Us</h1>
+    
+                    <p class="para p1">
+                        Finding the right home appliance technician that you and your family is comfortable with is
+                        no easy task. If you need plumbing, heating or appliance related work where you don’t have the
+                        technical expertise, you may never know what you can expect from a service technician.
+                    </p>
+        
+                    <p class="para p2">
+                        When Babu Kuriakose started doing plumbing work in 2015, he saw a major disconnect in the industry.
+                        Customers didn’t know what kind of work was being done inside their homes. Technicians often
+                        do more than is needed, and charge the client. Babu Kuriakose believes that the clients deserve
+                        to know what options are available, and the clients should be able to make an informed decision. In Arackal Plumbing and Home solutions, you will find friendly, trustworthy service
+        
+                        technician who will provide accurate and reliable service
+                    </p>
+        
+                    <p class="para p3">We happily serve in San Diego, San Marcos, El Cajon and Escondido areas</p>
+        
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
 
     </article>
@@ -323,11 +370,24 @@
 @media only screen and (min-width: 768px) {
     /* Desktop Devices */
 
+    html, body{
+        color: white;
+    }
+
     #c{
         width: 100%;
         height: 100%;
         display: block;
         position: fixed;
+    }
+
+    #page-container{
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .page{
+        position: absolute;
     }
 
     .logo-container{
@@ -386,44 +446,34 @@ a:hover{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
+
+
+
+<script>
+        $(function () { // wait for document ready
+		// init
+		var controller = new ScrollMagic.Controller();
+
+		// define movement of panels
+		var wipeAnimation = new TimelineMax()
+            .fromTo(".page-1", 1, {opacity:1, display:"block"}, {opacity:0, display:"none", ease: Linear.easeNone, delay:1})
+            .fromTo(".page-2", 1, {opacity: 0}, {opacity:1,ease: Linear.easeNone, delay:.5})
+
+
+		// create scene to pin and link animation
+		new ScrollMagic.Scene({
+				triggerElement: "#page-container",
+				triggerHook: "onLeave",
+				duration: "400%"
+			})
+			.setPin("#page-container")
+			.setTween(wipeAnimation)
+			.addIndicators() // add indicators (requires plugin)
+			.addTo(controller);
+	});
+</script>
+
 
 
 <script type="module">
@@ -508,10 +558,11 @@ function main() {
     
 
 
-
-
-    
-
+    window.addEventListener("scroll", function(event){
+        const pos =  $(window).scrollTop() / ($(document).height() - $(window).height());
+        console.log(pos)
+        handleMesh.rotation.y = 2*Math.PI*pos
+    });
 
 
 
@@ -524,8 +575,6 @@ function main() {
             camera.updateProjectionMatrix();
         }
 
-
-        
         renderer.render(scene, camera);
         requestAnimationFrame(render);
     }
@@ -552,6 +601,14 @@ main()
 
 </script>
 
+
+
+<script>
+
+
+
+
+</script>
 
 
 </html>
