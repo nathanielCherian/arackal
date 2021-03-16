@@ -84,15 +84,15 @@
                     <div class="row">
 
                         <div class="col-md-12 d-none d-md-block service-btn__container">
-                            <a href="{% url 'plumbing' %}" class="service-btn">Plumbing</a>
+                            <a href="{% url 'plumbing' %}" class="service-btn s1">Plumbing</a>
                         </div>
 
                         <div class="col-md-12 d-none d-md-block service-btn__container">
-                            <a href="{% url 'heating' %}" class="service-btn">Heating</a>
+                            <a href="{% url 'heating' %}" class="service-btn s2">Heating</a>
                         </div>
 
                         <div class="col-md-12 d-none d-md-block service-btn__container">
-                            <a href="{% url 'appliances' %}" class="service-btn">Appliances</a>
+                            <a href="{% url 'appliances' %}" class="service-btn s3">Appliances</a>
                         </div>
 
                         <div class="col-md-12 service-btn__container">
@@ -139,15 +139,71 @@
 
             <div class="col-md-4 main-col">
 
+                <!--Hidden on Moble-->
                 <div class="container-fluid request-service d-none d-md-block">
-                    <!--Hidden on Moble-->
                     <div class="row justify-content-end row-cols-1">
                         <div class="col request-service__container">
                             <button class="request-service-btn btn">Request a Service</button>                    
                         </div>
-                    
                     </div>
-                    
+
+                    <div class="row justify-content-end row-cols-1 request-form">
+                        <div class="col request-form__container">
+                            <form class="form-horizontal" method="POST" id="request-form">
+                                {% csrf_token %}
+                                <fieldset>
+                        
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label" for="textinput">Name</label>  
+                                      <div class="col-md-12">
+                                      <input id="textinput" name="name" type="text" placeholder="Name" class="form-control input-md">
+                                      </div>
+                                    </div>
+                                    
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label" for="Email">Email</label>  
+                                      <div class="col-md-12">
+                                      <input id="Email" name="email" type="email" placeholder="email@example.com" class="form-control input-md">
+                                      </div>
+                                    </div>
+                                    
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label" for="Phone Number">Phone Number</label>  
+                                      <div class="col-md-12">
+                                      <input id="Phone Number" name="number" type="tel" placeholder="111 222 3344" class="form-control input-md" required="">
+                                      </div>
+                                    </div>
+                                    
+                                    <!-- Textarea -->
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label" for="Message">Message</label>
+                                      <div class="col-md-12">                     
+                                        <textarea class="form-control" id="Message" name="message"></textarea>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">                     
+                                            <input type="submit" value="Submit">
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                            </form>
+
+                            <div class="row justify-content-center">
+                                <div class="col license-number">
+                                    <p class="lead">License No. 1072564</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
 
 
@@ -175,7 +231,7 @@
                 <!--Hidden on desktop-->
 
                 <div class="container-fluid request-service" id="request-service">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="request-form">
                         <fieldset>
                         
                         <!-- Form Name -->
@@ -213,6 +269,12 @@
                           </div>
                         </div>
                         
+                        <div class="form-group">
+                            <div class="col-md-12">                     
+                                <input type="submit" value="Submit">
+                            </div>
+                        </div>
+
                         </fieldset>
                         </form>
                         
@@ -247,9 +309,10 @@
             </div>
 
 
+            </div>
         </div>
     </div>
-    
+
 
     <!-- Desktop Only -->
     <div class="container-fluid page page-2 d-none d-md-block">
@@ -297,6 +360,7 @@
     </div>
 
 
+    
     </article>
 </body>
 
@@ -387,6 +451,10 @@
         padding: 5%;
     }
 
+    #request-form{
+        text-align: center;
+    }
+
     .form-name{
         text-align: center;
     }
@@ -432,6 +500,11 @@
         position: absolute;
     }
 
+    .page-1{
+        z-index: 100;
+        animation: 1s ease-out 0s 1 fadeIn;
+    }
+
     .logo-container{
         text-align: center;
         margin-top: 5%;
@@ -455,6 +528,18 @@
         font-size: 2.5em;
     }
 
+    .s1{
+        animation: 1s ease-out 0s 1 slideInFromLeft;
+    }
+
+    .s2{
+        animation: 1s ease-out 0s 1 slideInFromLeft2;
+    }
+
+    .s3{
+        animation: 1s ease-out 0s 1 slideInFromLeft3;
+    }
+
     .request-service__container{
         text-align: end;
         padding: 10%;
@@ -474,9 +559,12 @@
 
 
     .request-form__container{
-        padding: 10%;
-        padding-top: 0%;
         text-align: center;
+        z-index: 100;
+    }
+
+    .request-form{
+        display: none;
     }
 
 
@@ -502,6 +590,9 @@
     }
 
 
+
+
+
 }
 
 
@@ -522,6 +613,16 @@ a:hover{
     height: 100vh;
 }
 
+
+@keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+}
 
 
 </style>
@@ -546,7 +647,10 @@ enquire.register("screen and (min-width: 768px)", {
 });
 
 
-
+$(".request-service-btn").click(event => {
+    document.getElementById("request-form").reset();
+    $(".request-form").fadeIn(1000);
+});
 
 </script>
 

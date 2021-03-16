@@ -143,7 +143,7 @@ $(function () { // wait for document ready
     // define movement of panels
     var wipeAnimation = new TimelineMax()
         .fromTo(".page-1", 1, {opacity:1, display:"block"}, {opacity:0, display:"none", ease: Linear.easeNone, delay:1})
-        .fromTo(".page-2", 1, {opacity: 0}, {opacity:1,ease: Linear.easeNone, delay:.5})
+        .fromTo(".page-2", 1, {opacity: 0, display:"none"}, {opacity:1, display:"block", ease: Linear.easeNone, delay:.5})
 
 
     // create scene to pin and link animation
