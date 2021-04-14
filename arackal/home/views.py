@@ -89,7 +89,7 @@ def get_request(request):
 
         print(name, number, email, message)
 
-        return
+        
         email_message = f"""
         NAME:         {name}
         PHONE NUMBER: {number}
