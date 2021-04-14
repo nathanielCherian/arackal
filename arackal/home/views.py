@@ -64,7 +64,7 @@ def appliances(request):
             'Cooking Range', 
             'Garbage Disposals', 
             'Water Filtration Systems', 
-            'Refridgerators, Freezers', 
+            'Refrigerators, Freezers', 
             'Ice Maker Lines Installed', 
             'Coffee maker lines Installed', 
             'Appliance Hookups, both Water and Gas', 
