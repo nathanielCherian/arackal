@@ -6,6 +6,7 @@ def index(request):
     get_request(request)
     return render(request, "home/i.html")
 
+"""
 def plumbing(request):
     get_request(request)
     return render(request, "home/plumbing.html")
@@ -17,6 +18,60 @@ def heating(request):
 def appliances(request):
     get_request(request)
     return render(request, "home/appliances.html")
+"""
+
+
+def plumbing(request):
+    get_request(request)
+    service = {
+        "name":"Plumbing",
+        "image":"home/images/plumbing.JPG",
+        "services":[
+            'Backwater Valves', 
+            'Video Inspections', 
+            'Slab Leaks Repaired', 
+            'Faucets repaired or Replaced', 
+            'Backflow Preventer Installation', 
+            'All Types of Re-piping Services', 
+            'Water Pressure Regulation Devices', 
+            'Sump Pumps Installed and Serviced', 
+            'Water Heaters Repaired and Replaced', 
+            'Underground Water and Drain Piping Repaired', 
+            'Water Closets and Urinals Repaired or Replaced']
+    }
+
+    return render(request, "home/service-template.html", context=service)
+
+def heating(request):
+    get_request(request)
+    service = {
+        "name":"Heating",
+        "image":"home/images/heating.JPG",
+        "services":[
+            'Water Heater', 
+            'Violation Corrections', 
+            'Wall Heaters – Installed and serviced']
+    }
+
+    return render(request, "home/service-template.html", context=service)
+
+def appliances(request):
+    get_request(request)
+    service = {
+        "name":"Appliances",
+        "image":"home/images/appliances.JPG",
+        "services":[
+            'Cooking Range', 
+            'Garbage Disposals', 
+            'Water Filtration Systems', 
+            'Refridgerators, Freezers', 
+            'Ice Maker Lines Installed', 
+            'Coffee maker lines Installed', 
+            'Appliance Hookups, both Water and Gas', 
+            'Dishwashers, Clothes Washers, Gas Dryers']
+    }
+
+    return render(request, "home/service-template.html", context=service)
 
 
 @xframe_options_sameorigin

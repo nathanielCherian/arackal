@@ -11,5 +11,6 @@ urlpatterns = [
 
 
     path('background/', views.faucet_background, name="background"),
+    #path('test/', views.test, name="test"),
 
 ]
