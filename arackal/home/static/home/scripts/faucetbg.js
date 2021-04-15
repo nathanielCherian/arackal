@@ -7,7 +7,7 @@ function main() {
     const renderer = new THREE.WebGLRenderer({canvas});
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x7fe3e3)
+    scene.background = new THREE.Color(0x3366cd)
 
 
 
