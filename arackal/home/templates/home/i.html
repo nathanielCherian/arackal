@@ -56,7 +56,8 @@
                         </div>
 
                         <div class="col logo-img__container">
-                            <img src="{% static 'home/images/logo.png' %}" class="logo-img">
+                            <img src="{% static 'home/images/logo.png' %}" class="logo-img desktop">
+                            <img src="{% static 'home/images/logo-dark-bg-removed.png' %}" class="logo-img mobile">
                         </div>
 
                         <div class="col logo-slogan__container">
@@ -370,6 +371,9 @@
 @media only screen and (max-width: 768px) {
     /* Mobile Devices */
 
+    .desktop {
+        display: none;
+    }
 
     .page-1{
         background-color: #ffffff;
@@ -473,6 +477,10 @@
 
 @media only screen and (min-width: 768px) {
     /* Desktop Devices */
+
+    .mobile {
+        display: none;
+    }
 
     html, body{
         color: white;
