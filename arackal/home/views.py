@@ -33,14 +33,14 @@ def plumbing(request):
             'Slab Leaks Repaired', 
             'Faucets repaired or Replaced', 
             'Backflow Preventer Installation',
-            'All Types of Re-piping Services', 
+            'All types of Re-piping Services', 
             'Water Pressure Regulation Devices', 
             'Sump Pumps Installed and Serviced', 
             'Cold/Hot, Sever & Gas line location',
             'Water Heaters Repaired and Replaced', 
             'Slab leak and Water Detection Services',
-            'Hot water recalculation pump Installation',
-            'Thankless/tank water heater cleaning & Service.',
+            'Hot water recirculation pump Installation',
+            'Tankless/tank water heater cleaning & Service.',
             'Underground Water and Drain Piping Repaired', 
             'Water Closets and Urinals Repaired or Replaced']
     }
